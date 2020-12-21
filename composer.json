@@ -11,7 +11,7 @@
     "require": {
         "yiisoft/yii2": "~2.0.0"
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
             "daccess1\\JsonQueryHelper\\": ""
