@@ -10,7 +10,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1401ddf-16bd-4c27-b76b-e4d34171662d" name="Default Changelist" comment="autoload fix">
+    <list default="true" id="a1401ddf-16bd-4c27-b76b-e4d34171662d" name="Default Changelist" comment="update readme">
       <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +94,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608581457266</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="update readme">
+      <created>1608582686849</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1608582686849</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,11 +121,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="typo fixes" />
-    <MESSAGE value="update readme" />
     <MESSAGE value="make field path changeable" />
     <MESSAGE value="stability update" />
     <MESSAGE value="autoload fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="autoload fix" />
+    <MESSAGE value="update readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="update readme" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1608568691422">
@@ -133,10 +140,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608548240721" />
-    <state x="552" y="239" key="Vcs.Push.Dialog.v2" timestamp="1608582568942">
+    <state x="552" y="239" key="Vcs.Push.Dialog.v2" timestamp="1608582688399">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="239" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608582568942" />
+    <state x="552" y="239" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608582688399" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1608549851367">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
