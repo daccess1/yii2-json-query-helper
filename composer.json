@@ -14,7 +14,7 @@
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
-            "daccess1\\JsonQueryHelper\\": ""
+            "daccess1\\JSONQueryHelper\\": ""
         }
     }
 }

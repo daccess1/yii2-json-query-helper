@@ -10,7 +10,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1401ddf-16bd-4c27-b76b-e4d34171662d" name="Default Changelist" comment="make field path changeable">
+    <list default="true" id="a1401ddf-16bd-4c27-b76b-e4d34171662d" name="Default Changelist" comment="stability update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
     </list>
@@ -26,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="1.0.0-stable" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,7 +51,7 @@
       <option name="presentableId" value="Default" />
       <updated>1608548110072</updated>
       <workItem from="1608548111295" duration="3263000" />
-      <workItem from="1608554514824" duration="6795000" />
+      <workItem from="1608554514824" duration="8441000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1608554536618</created>
@@ -81,7 +81,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608568211731</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="stability update">
+      <created>1608579393396</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1608579393396</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -103,25 +110,26 @@
     <MESSAGE value="typo fixes" />
     <MESSAGE value="update readme" />
     <MESSAGE value="make field path changeable" />
-    <option name="LAST_COMMIT_MESSAGE" value="make field path changeable" />
+    <MESSAGE value="stability update" />
+    <option name="LAST_COMMIT_MESSAGE" value="stability update" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1608568691422">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#Deployment/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608568691422" />
-    <state width="259" height="221" key="Git.Branch.Popup" timestamp="1608579118493">
+    <state width="265" height="227" key="Git.Branch.Popup" timestamp="1608579981583">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="259" height="221" key="Git.Branch.Popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608579118493" />
+    <state width="265" height="227" key="Git.Branch.Popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608579981583" />
     <state x="794" y="443" key="NewPhpFileDialog" timestamp="1608548240721">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608548240721" />
-    <state x="552" y="239" key="Vcs.Push.Dialog.v2" timestamp="1608578962312">
+    <state x="552" y="239" key="Vcs.Push.Dialog.v2" timestamp="1608580207929">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="239" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608578962312" />
+    <state x="552" y="239" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608580207929" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1608549851367">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
