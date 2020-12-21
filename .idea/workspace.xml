@@ -10,9 +10,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1401ddf-16bd-4c27-b76b-e4d34171662d" name="Default Changelist" comment="init">
+    <list default="true" id="a1401ddf-16bd-4c27-b76b-e4d34171662d" name="Default Changelist" comment="typo fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JsonQueryHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/JsonQueryHelper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +46,7 @@
       <option name="presentableId" value="Default" />
       <updated>1608548110072</updated>
       <workItem from="1608548111295" duration="3263000" />
-      <workItem from="1608554514824" duration="236000" />
+      <workItem from="1608554514824" duration="1619000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1608554536618</created>
@@ -55,7 +55,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608554536618</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="typo fixes">
+      <created>1608554772826</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1608554772826</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -74,17 +81,18 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="typo fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="typo fixes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="794" y="443" key="NewPhpFileDialog" timestamp="1608548240721">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608548240721" />
-    <state x="552" y="239" key="Vcs.Push.Dialog.v2" timestamp="1608554538625">
+    <state x="552" y="239" key="Vcs.Push.Dialog.v2" timestamp="1608554775368">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="239" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608554538625" />
+    <state x="552" y="239" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608554775368" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1608549851367">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

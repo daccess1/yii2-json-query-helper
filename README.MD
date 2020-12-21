@@ -3,7 +3,7 @@
     <br>
 </p>
 
-This package provides a `JsonQueryHelper` class, that allows you to generate `yii\db\Expression` expressions for searching and filtering by content JSON columns.
+This package provides a `JsonQueryHelper` class, that allows you to generate `yii\db\Expression` expressions for searching by content of JSON columns.
 
 
 Installation
@@ -18,16 +18,30 @@ php composer.phar require --prefer-dist daccess1/yii2-json-query-helper
 Usage
 -----
 
-To use this helper, simply pass any methods results to query builder, like this
+To use this helper, simply it's result to ActiveQuery builder, like this
 ```php
 use daccess1\JsonQueryHelper\JsonQueryHelper;
 
-Model::find()->andWhere(JsonQueryHelper::createOrJsonContainsExpression('json_field_name', ['value_1', 'value_2', 'value_3']));
+Model::find()->where(JsonQueryHelper::JSONContains(['json_field', [123, 'value_2']]));
+```
+The code above will generate an SQL query like this:
+```sql
+SELECT * FROM `model` WHERE (JSON_CONTAINS(`json_field`, "123", "$") OR JSON_CONTAINS(`json_field`, "value_2", "$"))
+```
 
-$query->andWhere(QueryHelper::JSONContains(['or', 'destinations', $this->destinations]));
-SELECT * FROM `trip` WHERE (JSON_CONTAINS(destinations, "16", "$") OR JSON_CONTAINS(destinations, "17", "$") OR JSON_CONTAINS(destinations, "18", "$")) LIMIT 21
+Values array can contain any number of elements with mixed types. Parameters array can contain either two or three values, it's structure is similar to default Yii2 query builder params. See examples of all possible ways of usage below for more details.
 
-	SELECT * FROM `trip` WHERE JSON_CONTAINS(destinations, "16", "$") LIMIT 21
+```php
+//Check if single value is present in JSON
+JsonQueryHelper::JSONContains(['json_field', 'value_1'])
+
+//Check if any of values is present in JSON
+QueryHelper::JSONContains(['or', 'json_field', ['value_1', 'value_2' ... 'value_n']])
+//Equivalent shorthand
+JsonQueryHelper::JSONContains(['json_field', ['value_1', 'value_2' ... 'value_n']])
+
+//Check if all values is present in JSON
+QueryHelper::JSONContains(['and', 'json_field', ['value_1', 'value_2' ... 'value_n']])
 ```
 
 Requirements
