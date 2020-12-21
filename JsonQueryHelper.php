@@ -21,7 +21,7 @@ class JSONQueryHelper
     /**
      * Create JSON_CONTAINS [[yii\db\Expression]] expression fo usage with ActiveRecord query
      *
-     * @param array $params the usage is similar to default Yii2 query where() params
+     * @param array $params array of parameters for generating SQL query expression
      *
      * @return Expression
      *
@@ -31,76 +31,78 @@ class JSONQueryHelper
     {
         $count_params = count($params);
 
-        if ($count_params !== 2 && $count_params !== 3) {
-            throw new InvalidArgumentException('JSONContains params array must contain only 2 or 3 elements');
-        }
-
         if ($count_params === 2) {
             $field = ArrayHelper::getValue($params, 0);
+
+            $field_params = static::parseFieldParam($field);
+            $field_name = ArrayHelper::getValue($field_params, 'field_name');
+            $path = ArrayHelper::getValue($field_params, 'path');
+
             $value = ArrayHelper::getValue($params, 1);
 
-            if (!is_string($field) || !strlen($field)) {
-                throw new InvalidArgumentException('JSONContains field name must be a string and cannot be empty');
-            }
-
             if (is_array($value)) {
-                return static::createOrJsonContainsExpression($field, $value);
+                return static::createOrJsonContainsExpression($field_name, $value, $path);
             } else {
-                return static::createJsonContainsExpression($field, $value);
+                return static::createJsonContainsExpression($field_name, $value, $path);
             }
         }
 
         if ($count_params === 3) {
             $mode = strtoupper(ArrayHelper::getValue($params, 0));
-            $field = ArrayHelper::getValue($params, 1);
-            $values = ArrayHelper::getValue($params, 2);
 
             if (!in_array($mode, static::MODES)) {
-                throw new InvalidArgumentException('JSONContains mode must be either "AND" or "OR"');
+                throw new InvalidArgumentException('JSONContains first param must be either "AND" or "OR"');
             }
 
-            if (!is_string($field) || !strlen($field)) {
-                throw new InvalidArgumentException('JSONContains field name must be a string and cannot be empty');
-            }
+            $values = ArrayHelper::getValue($params, 2);
 
             if (!is_array($values)) {
-                throw new InvalidArgumentException('JSONContains values must be an array');
+                throw new InvalidArgumentException('JSONContains third param must be an array');
             }
 
+            $field = ArrayHelper::getValue($params, 1);
+            $field_params = static::parseFieldParam($field);
+            $field_name = ArrayHelper::getValue($field_params, 'field_name');
+            $path = ArrayHelper::getValue($field_params, 'path');
+
             if ($mode === static::MODE_AND) {
-                return static::createAndJsonContainsExpression($field, $values);
+                return static::createAndJsonContainsExpression($field_name, $values, $path);
             }
 
             if ($mode === static::MODE_OR) {
-                return static::createOrJsonContainsExpression($field, $values);
+                return static::createOrJsonContainsExpression($field_name, $values, $path);
             }
         }
+
+        throw new InvalidArgumentException('JSONContains params array must contain only 2 or 3 elements');
     }
 
     /**
-     * Create [[Expression]] to check if a JSON field contains single item
+     * Create [[Expression]] to check if JSON field contains single item
      *
-     * @param string $field
-     * @param mixed $item
+     * @param string $field field name
+     * @param mixed $item value to search for
+     * @param string $path JSON path
      *
      * @return Expression
      */
-    private static function createJsonContainsExpression(string $field, $item) : Expression
+    private static function createJsonContainsExpression(string $field, $item, string $path) : Expression
     {
-        $expression = 'JSON_CONTAINS(`' . $field . '`, "' . $item . '", "$")';
+        $expression = static::generateExpression($field, $item, $path);
 
         return new Expression($expression);
     }
 
     /**
-     * Create [[Expression]] to check if a JSON field contains any of items
+     * Create [[Expression]] to check if JSON field contains any of items
      *
-     * @param string $field
-     * @param array $items
+     * @param string $field field name
+     * @param array $items list of values to search for
+     * @param string $path JSON path
      *
      * @return Expression
      */
-    private static function createOrJsonContainsExpression(string $field, array $items) : Expression
+    private static function createOrJsonContainsExpression(string $field, array $items, string $path) : Expression
     {
         $i = 0;
         $expression = '(';
@@ -110,7 +112,7 @@ class JSONQueryHelper
                 $expression .= ' OR ';
             }
 
-            $expression .= 'JSON_CONTAINS(`' . $field . '`, "' . $item . '", "$")';
+            $expression .= static::generateExpression($field, $item, $path);
             $i++;
         }
 
@@ -120,14 +122,15 @@ class JSONQueryHelper
     }
 
     /**
-     * Create [[Expression]] to check if a JSON field contains all of items
+     * Create [[Expression]] to check if JSON field contains all items
      *
-     * @param string $field
-     * @param array $items
+     * @param string $field field name
+     * @param array $items list of values to search for
+     * @param string $path JSON path
      *
      * @return Expression
      */
-    private static function createAndJsonContainsExpression(string $field, array $items) : Expression
+    private static function createAndJsonContainsExpression(string $field, array $items, string $path) : Expression
     {
         $i = 0;
         $expression = '(';
@@ -137,12 +140,69 @@ class JSONQueryHelper
                 $expression .= ' AND ';
             }
 
-            $expression .= 'JSON_CONTAINS(`' . $field . '`, "' . $item . '", "$")';
+            $expression .= static::generateExpression($field, $item, $path);;
             $i++;
         }
 
         $expression .= ')';
 
         return new Expression($expression);
+    }
+
+    /**
+     * Generate SQL expression
+     *
+     * @param string $field
+     * @param $item
+     * @param string $path
+     *
+     * @return string
+     */
+    private static function generateExpression(string $field, $item, string $path = '$') : string
+    {
+        return 'JSON_CONTAINS(`' . $field . '`, "' . $item . '", "' . $path . '")';
+    }
+
+    /**
+     * Parse field param and get JSON path
+     *
+     * @param $field
+     *
+     * @return string[]
+     * @throws Exception
+     */
+    private static function parseFieldParam($field) : array
+    {
+        if (is_string($field)) {
+            if (!strlen($field)) {
+                throw new InvalidArgumentException('JSONContains field name cannot be empty');
+            }
+
+            return [
+                'field_name' => $field,
+                'path' => '$',
+            ];
+        }
+
+        if (is_array($field)) {
+            $field_name = ArrayHelper::getValue($field, 0);
+
+            if (!is_string($field_name) || !strlen($field_name)) {
+                throw new InvalidArgumentException('JSONContains field name cannot be empty');
+            }
+
+            $path = ArrayHelper::getValue($field, 1);
+
+            if (!is_string($path) || !strlen($path)) {
+                throw new InvalidArgumentException('JSONContains path must be a string and cannot be empty');
+            }
+
+            return [
+                'field_name' => $field_name,
+                'path' => $path,
+            ];
+        }
+
+        throw new InvalidArgumentException('JSONContains field could not be parsed');
     }
 }
