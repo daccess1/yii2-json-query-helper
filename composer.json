@@ -1,0 +1,12 @@
+{
+    "name": "daccess1/yii2-json-query-helper",
+    "description": "Yii2 helper class, used to generate query expressions for JSON columns.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "b.kruchinkin",
+            "email": "b.kruchinkin@yandex.ru"
+        }
+    ],
+    "require": {}
+}
