@@ -22,7 +22,7 @@ To use this helper, simply it's result to ActiveQuery builder, like this
 ```php
 use daccess1\JSONQueryHelper\JSONQueryHelper;
 
-Model::find()->where(JSONQueryHelper::JSONContains(['json_field', [123, 'value_2']]));
+Model::find()->where(JSONQueryHelper::JSONContains(['json_field', [123, 'value_2']]))->all();
 ```
 The code above will generate an SQL query like this:
 ```sql
@@ -36,12 +36,12 @@ Values array can contain any number of elements with mixed types. Parameters arr
 JSONQueryHelper::JSONContains(['json_field', 'value_1'])
 
 //Check if any of values is present in JSON
-QueryHelper::JSONContains(['or', 'json_field', ['value_1', 'value_2' ... 'value_n']])
+JSONQueryHelper::JSONContains(['or', 'json_field', ['value_1', 'value_2' ... 'value_n']])
 //Equivalent shorthand
 JSONQueryHelper::JSONContains(['json_field', ['value_1', 'value_2' ... 'value_n']])
 
 //Check if all values is present in JSON
-QueryHelper::JSONContains(['and', 'json_field', ['value_1', 'value_2' ... 'value_n']])
+JSONQueryHelper::JSONContains(['and', 'json_field', ['value_1', 'value_2' ... 'value_n']])
 ```
 You may also set the specific path in for JSON where to find the value. To do so, set the field as an array, with field name as the first item and path as second one. See SQL JSON_CONTAINS documentation for more details on formatting path. Example usage:
 ```php

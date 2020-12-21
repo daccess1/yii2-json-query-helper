@@ -11,8 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1401ddf-16bd-4c27-b76b-e4d34171662d" name="Default Changelist" comment="autoload fix">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JsonQueryHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/JSONQueryHelper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,10 +133,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608548240721" />
-    <state x="552" y="239" key="Vcs.Push.Dialog.v2" timestamp="1608581479756">
+    <state x="552" y="239" key="Vcs.Push.Dialog.v2" timestamp="1608582568942">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="239" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608581479756" />
+    <state x="552" y="239" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608582568942" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1608549851367">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
