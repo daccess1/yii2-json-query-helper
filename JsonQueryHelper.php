@@ -8,7 +8,7 @@ use yii\db\Expression;
 use yii\helpers\ArrayHelper;
 
 /**
- * Helper class for creating JSON_CONTINS SQL query strings
+ * Helper class for creating JSON_CONTAINS SQL query strings
  *
  * @package common\helpers
  */
@@ -21,7 +21,7 @@ class JSONQueryHelper
     /**
      * Create JSON_CONTAINS [[yii\db\Expression]] expression fo usage with ActiveRecord query
      *
-     * @param array $params
+     * @param array $params the usage is similar to default Yii2 query where() params
      *
      * @return Expression
      *
@@ -40,7 +40,7 @@ class JSONQueryHelper
             $value = ArrayHelper::getValue($params, 1);
 
             if (!is_string($field) || !strlen($field)) {
-                throw new InvalidArgumentException('JSONContains second param must be a string and cannot be empty');
+                throw new InvalidArgumentException('JSONContains field name must be a string and cannot be empty');
             }
 
             if (is_array($value)) {
@@ -56,15 +56,15 @@ class JSONQueryHelper
             $values = ArrayHelper::getValue($params, 2);
 
             if (!in_array($mode, static::MODES)) {
-                throw new InvalidArgumentException('JSONContains first param must be either "AND" or "OR"');
+                throw new InvalidArgumentException('JSONContains mode must be either "AND" or "OR"');
             }
 
             if (!is_string($field) || !strlen($field)) {
-                throw new InvalidArgumentException('JSONContains second param must be a string and cannot be empty');
+                throw new InvalidArgumentException('JSONContains field name must be a string and cannot be empty');
             }
 
             if (!is_array($values)) {
-                throw new InvalidArgumentException('JSONContains third param must be an array');
+                throw new InvalidArgumentException('JSONContains values must be an array');
             }
 
             if ($mode === static::MODE_AND) {
